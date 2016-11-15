@@ -1,0 +1,9 @@
+#! /usr/bin/expect
+set timeout 10
+spawn gdb ./testMemoryUtil
+send "b MemoryUtil.h:2759\r"
+send "r\r"
+interact
+
+
+

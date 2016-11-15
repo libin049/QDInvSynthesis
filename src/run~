@@ -1,0 +1,3 @@
+LLVM_BUILD_PATH="$HOME/llvm-3.6.2/build/bin"
+cp ./tooling_sample $LLVM_BUILD_PATH
+$LLVM_BUILD_PATH/tooling_sample ../array/string.c -- > string.txt
