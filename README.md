@@ -2,7 +2,7 @@
 
 this is the tool for "Automatic Invariant Synthesis for Simple Loops Programs".
 
-#build
+##build
 Building QDInvSynthesis using Z3 and Clang
 
 1. you must build Z3 in your system. please see it in https://github.com/Z3Prover/z3
@@ -13,5 +13,5 @@ Building QDInvSynthesis using Z3 and Clang
 
 4. run compile.sh
 
-Execute:
+##Execute:
 ./main ../array.cpp --
