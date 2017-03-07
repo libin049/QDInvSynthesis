@@ -11,7 +11,7 @@ Building QDInvSynthesis using Z3 and Clang
 
 3. cd src, edit compile.sh, set LLVM_SRC_PATH, LLVM_BUILD_PATH, LLVM_BIN_PATH, z3_src_path and z3_build_path
 
-4. run compile.sh
+4. run compile.sh,  cd src, Execute:  ./main ../array.cpp --
 
 ##Execute:
 ./main ../array.cpp --
