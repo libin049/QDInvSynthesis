@@ -1,4 +1,0 @@
-1. user need add bin file:tooling_sample to LLVM_BUILD_PATH dir
-2. run the fellow cmd
-LLVM_BUILD_PATH="$HOME/llvm-3.6.2/build/bin"
-$LLVM_BUILD_PATH/tooling_sample ../large_programs/bzip2-1.0.6/blocksort.c -- >debug.txt

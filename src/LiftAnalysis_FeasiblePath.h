@@ -1946,9 +1946,9 @@ FlowSet* closureForAllWithEnvironment(FlowSet* env,FlowSet* in){
 			}
 		}
 		else {
-			if(z3coding.toString(containforallFormula)=="{(= r 0)} || {forall _i0 in (j,(- 1),(- i 1)],(not (= (select a i) (select a _i0)))}"){
-				int xxx=0;
-			}
+//			if(z3coding.toString(containforallFormula)=="{(= r 0)} || {forall _i0 in (j,(- 1),(- i 1)],(not (= (select a i) (select a _i0)))}"){
+//				int xxx=0;
+//			}
 			FlowSet* fs=__closureForAllWithEnvironment_orFormula_process(containforallFormula,env);
 			if(fs!=nullptr){
 				result->Union(fs);
@@ -2764,9 +2764,9 @@ Formula*  __updatePhiProcess2(expr arrayAcessProperty,expr index,expr quantifier
 }
 //if  f is (forall p or p2), not updatephi
 bool __updatePhi_OrFormua_tactics(expr arrayAcessProperty,expr index){
-	if(z3coding.toString(arrayAcessProperty)=="{(= (select a i) (select a j))} || {exist _i0 in [1,1,100),(not (= (select a _i0) (select a j)))}"){
+	/*if(z3coding.toString(arrayAcessProperty)=="{(= (select a i) (select a j))} || {exist _i0 in [1,1,100),(not (= (select a _i0) (select a j)))}"){
 		int yyy=1;
-	}
+	}*/
 	auto orFormulas=z3coding.splitOrFormulas(arrayAcessProperty);
 	vector<expr> relevantOrFormulas;
 	vector<expr> unrelevantOrFormulas;
@@ -4371,7 +4371,6 @@ LiftAnalysis_FeasiblePath(FunctionDecl * functionDecl,clang::CFG* cfg,context &c
 	int hasForallFormulaLoopCount=0;
 	int hasExistFormulaLoopCount=0;
 	int hasForallOrExistFormulaLoopCount=0;
-	int hasOrFormulaLoopCount=0;
 	vector<CFGBlock*> loopBlocks;
 	int blockCount=0;
 	void statistic(){
@@ -4379,7 +4378,6 @@ LiftAnalysis_FeasiblePath(FunctionDecl * functionDecl,clang::CFG* cfg,context &c
 		for (std::map<CFGBlock*, FlowSet*>::iterator it=mapToBlockIn.begin(); it!=mapToBlockIn.end(); ++it){
 			int fcount=statisticForAllFormula(it->second);
 			int ecount=statisticExistFormula(it->second);
-			int orcount=statisticOrFormula(it->second);
 			for(int i=0;i<(int)loopBlocks.size();i++){
 				if(loopBlocks[i]==it->first){
 					if(fcount>0){
@@ -4388,10 +4386,6 @@ LiftAnalysis_FeasiblePath(FunctionDecl * functionDecl,clang::CFG* cfg,context &c
 					}
 					if(ecount>0){
 						hasExistFormulaLoopCount++;
-						
-					}
-					if(orcount>0){
-						hasOrFormulaLoopCount++;
 						
 					}
 					if(ecount>0||fcount>0){
@@ -4440,16 +4434,6 @@ LiftAnalysis_FeasiblePath(FunctionDecl * functionDecl,clang::CFG* cfg,context &c
 		}
 		return count;
 	}
-	int statisticOrFormula(FlowSet* S){
-		auto v=toExprs(S);
-		int count=0;
-		for(expr e:*v){
-			if(containOrFormula(e)){
-				count++;
-			}
-		}
-		return count;
-	}
 	bool containForallFormula(expr e){
 		if(z3coding.isForAllFormula(e)){
 			return true;
@@ -4475,12 +4459,6 @@ LiftAnalysis_FeasiblePath(FunctionDecl * functionDecl,clang::CFG* cfg,context &c
 					return true;
 				}
 			}
-		}
-		return false;
-	}
-	bool containOrFormula(expr e){
-		if(z3coding.isOrFormula(e)){
-			return true;
 		}
 		return false;
 	}

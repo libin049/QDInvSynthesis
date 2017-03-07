@@ -8,8 +8,7 @@
 #include "MultiIndexesRelationAnalysis.h"
 
 class EnvironmentAnalysis: public IntraDataFlowAnalysis{
-private:
-		context &c;
+	private:
 		EnvironmentAnalysisUtil &emu;
 		Z3Coding &z3coding;
 		AtomVariablaAnalysis *indexAnalysis;
@@ -405,12 +404,11 @@ expr getIndex2EqIndex1(expr index1,expr index2,int diff,FlowSet* indexEnv){
 		map<const clang::Stmt*, vector<FlowSet*>*> mapToStmtExprIn;
 		map<const clang::Stmt*, vector<vector<FlowSet*>*>*> mapToStmtExprOut;
 	
-		EnvironmentAnalysis(FunctionDecl * functionDecl,clang::CFG* cfg,
-		EnvironmentAnalysisUtil& environmentUtil,
-		context &ctx,Z3Coding &z3c,AtomVariablaAnalysis *indexAna,C2Z3* c2z3/*,PointerAnalysis* pointerAna*/,
+		EnvironmentAnalysis(FunctionDecl * functionDecl,clang::CFG* cfg,EnvironmentAnalysisUtil& environmentUtil,
+		Z3Coding &z3c,AtomVariablaAnalysis *indexAna,C2Z3* c2z3/*,PointerAnalysis* pointerAna*/,
 		MultiIndexesRelationAnalysis* multiIndexesRelationAna)
 		:IntraDataFlowAnalysis(functionDecl,cfg),
-		emu(environmentUtil),c(ctx),z3coding(z3c),indexAnalysis(indexAna),c2z3Stmt(c2z3)/*,pointerAnalysis(pointerAna)*/,
+		emu(environmentUtil),z3coding(z3c),indexAnalysis(indexAna),c2z3Stmt(c2z3)/*,pointerAnalysis(pointerAna)*/,
 		multiIndexesRelationAnalysis(multiIndexesRelationAna){
 			index_mod_exprs=new vector<expr>();
 			pre_init();
@@ -603,38 +601,10 @@ expr getIndex2EqIndex1(expr index1,expr index2,int diff,FlowSet* indexEnv){
 			#ifdef _DEBUG
 				cout<<"Pos:: "<<toString(_Pre)<<std::endl;
 			#endif
-			/*硬编码，用于做实验*/
-			//cout<<"sjdjsajdasjdkjsds::::"<<z3coding.toString(T)<<std::endl;
-
-			if(z3coding.toString(T).find("*p !=")!=std::string::npos){
-				_Pre->push_back(hard_coded1(trueOrFalse));
-			}
-			if(z3coding.toString(T).find("*r !=")!=std::string::npos){
-				_Pre->push_back(hard_coded2(trueOrFalse));
-			}
 			return _Pre;
 		}
 		
-		expr hard_coded1(bool trueOrFalse){
-			expr p=c.int_const("p");
-			expr lens=c.int_const("len_s");
-			if(trueOrFalse){
-				return p<lens;
-			}
-			else{
-				return p>=lens;
-			}
-		}
-		expr hard_coded2(bool trueOrFalse){
-			expr r=c.int_const("r");
-			expr lenreject=c.int_const("len_reject");
-			if(trueOrFalse){
-				return r<lenreject;
-			}
-			else{
-				return r>=lenreject;
-			}
-		}
+		
 		void flowThrouth(CFGBlock*&n, FlowSet *&in, list<pair<CFGBlock*,FlowSet*>*> *&outs){
 			//cout<<"processing ... "<<n->getBlockID()<<std::endl;
 			for(auto it=outs->begin();it != outs->end(); it++){

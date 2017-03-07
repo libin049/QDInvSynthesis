@@ -1,6 +1,0 @@
-#include <vector>
-#include "z3++.h"
-#include <iostream>
-int main() {
-	std::cout<<"test"<<std::endl;
-}	

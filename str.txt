@@ -1,0 +1,517 @@
+*******************process function::  strcpy***************
+--------[B0] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (= (def_pointer (- src 1)) 0);
+ (= _ret tmp);
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+--------[B1] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (= (def_pointer (- src 1)) 0);
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+----------[B1]-> [B0] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (= (def_pointer (- src 1)) 0);
+ (= _ret tmp);
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+--------[B2] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ (distinct (def_pointer (- src 1)) 0);
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ forall _i1 in [dest@pre,1,dest),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,src),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+----------[B2]-> [B3] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ (distinct (def_pointer (- src 1)) 0);
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ forall _i1 in [dest@pre,1,dest),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,src),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+--------[B3] in ::--------
+forall _i1 in [dest@pre,1,dest),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,src),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))} || {(= tmp dest)};
+ {(let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))))} || {(= tmp dest)};
+ {(let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)))} || {(= tmp dest)};
+ {(distinct (def_pointer (- dest 1)) 0)} || {(= tmp dest)};
+ {(let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (distinct (def_pointer a!1) 0))} || {(= tmp dest)};
+ {(distinct (def_pointer (- src 1)) 0)} || {(= tmp dest)};
+ {(let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (distinct (def_pointer a!1) 0))} || {(= tmp dest)};
+ {forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0)} || {(= tmp dest)};
+ {forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0))} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i1 in [dest,1,(- dest 1)),(distinct (def_pointer _i1) 0)};
+ {(= tmp dest)} || {forall _i1 in [src,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0))};
+ 
+----------[B3]-> [B2] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ (distinct (def_pointer (- src 1)) 0);
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (distinct (def_pointer a!1) 0));
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ forall _i1 in [dest@pre,1,dest),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,src),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+----------[B3]-> [B1] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (let ((a!1 (- (+ (div (- src src@pre) 1) 0 dest@pre) 1)))
+  (= (def_pointer a!1) (def_pointer (- src 1))));
+ (let ((a!1 (- (+ (div (- dest dest@pre) 1) 0 src@pre) 1)))
+  (= (def_pointer (- dest 1)) (def_pointer a!1)));
+ (= (def_pointer (- src 1)) 0);
+ forall _i1 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i1) 0);
+ forall _i1 in [src@pre,1,(- src 1)),(let ((a!1 (+ (div (- (+ _i1 1) src@pre) 1) 0 dest@pre)))
+  (distinct (def_pointer (- a!1 1)) 0));
+ 
+--------[B4] in ::--------
+
+----------[B4]-> [B3] out -------:
+(= tmp dest);
+ 
+--------[B5] in ::--------
+
+----------[B5]-> [B4] out -------:
+
+*******************process function::  strncpy***************
+--------[B0] in ::--------
+(= count 0);
+ (= _ret dest);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+--------[B1] in ::--------
+(= count 0);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+----------[B1]-> [B0] out -------:
+(= count 0);
+ (= _ret dest);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+--------[B2] in ::--------
+{(= (def_pointer src) 0)} || {forall _i0 in [dest,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ {(= (def_pointer src) 0)} || {forall _i0 in [tmp,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B2]-> [B6] out -------:
+{(= (def_pointer src) 0)} || {forall _i0 in [dest,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ {(= (def_pointer src) 0)} || {forall _i0 in [tmp,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B3] in ::--------
+(distinct count 0);
+ {(distinct (def_pointer tmp) 0)} || {(= (def_pointer tmp) (def_pointer src))};
+ {(distinct (def_pointer tmp) 0)} || {(= (def_pointer src) 0)};
+ {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)} || {(= (def_pointer tmp) (def_pointer src))};
+ {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)} || {(= (def_pointer src) 0)};
+ {forall _i0 in [dest,1,(+ tmp 1)),(distinct (def_pointer _i0) 0)} || {(= (def_pointer tmp) (def_pointer src))};
+ {forall _i0 in [dest,1,(+ tmp 1)),(distinct (def_pointer _i0) 0)} || {(= (def_pointer src) 0)};
+ {(= (def_pointer tmp) (def_pointer src))} || {forall _i0 in [tmp,1,(+ tmp 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [tmp,1,(+ tmp 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer tmp) (def_pointer src))} || {forall _i0 in [dest,1,(+ tmp 1)),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,(+ tmp 1)),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+----------[B3]-> [B2] out -------:
+{(= (def_pointer src) 0)} || {forall _i0 in [dest,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ {(= (def_pointer src) 0)} || {forall _i0 in [tmp,1,(- tmp 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B4] in ::--------
+(distinct count 0);
+ (= (def_pointer tmp) (def_pointer src));
+ (distinct (def_pointer tmp) 0);
+ (distinct (def_pointer src) 0);
+ forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest,1,(+ tmp 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B4]-> [B3] out -------:
+(distinct count 0);
+ (distinct (def_pointer tmp) 0);
+ forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest,1,(+ tmp 1)),(distinct (def_pointer _i0) 0);
+ 
+--------[B5] in ::--------
+(distinct count 0);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+----------[B5]-> [B4] out -------:
+(distinct count 0);
+ (= (def_pointer tmp) (def_pointer src));
+ (distinct (def_pointer tmp) 0);
+ (distinct (def_pointer src) 0);
+ forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest,1,(+ tmp 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B5]-> [B3] out -------:
+(distinct count 0);
+ (= (def_pointer tmp) (def_pointer src));
+ (= (def_pointer src) 0);
+ 
+--------[B6] in ::--------
+{(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+----------[B6]-> [B5] out -------:
+(distinct count 0);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+----------[B6]-> [B1] out -------:
+(= count 0);
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer src) 0)} || {forall _i0 in [dest,1,tmp),{(distinct (def_pointer _i0) 0)} || {(= (def_pointer _i0) (def_pointer src))}};
+ 
+--------[B7] in ::--------
+
+----------[B7]-> [B6] out -------:
+(= tmp dest);
+ 
+--------[B8] in ::--------
+
+----------[B8]-> [B7] out -------:
+
+*******************process function::  strcat***************
+--------[B0] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (= (def_pointer (- src 1)) 0);
+ (= _ret tmp);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ 
+--------[B1] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (= (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B1]-> [B0] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (= (def_pointer (- src 1)) 0);
+ (= _ret tmp);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ 
+--------[B2] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B2]-> [B3] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B3] in ::--------
+{forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))} || {(= (def_pointer dest) 0)};
+ {(distinct (def_pointer (- dest 1)) 0)} || {(= (def_pointer dest) 0)};
+ {(distinct (def_pointer (- src 1)) 0)} || {(= (def_pointer dest) 0)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= (def_pointer dest) 0)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer dest) 0)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B3]-> [B2] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B3]-> [B1] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (= (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ 
+--------[B4] in ::--------
+forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B4]-> [B6] out -------:
+forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B5] in ::--------
+(distinct (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ forall _i0 in [dest@pre,1,(+ dest 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B5]-> [B4] out -------:
+forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B6] in ::--------
+forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B6]-> [B5] out -------:
+(distinct (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ forall _i0 in [dest@pre,1,(+ dest 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B6]-> [B3] out -------:
+(= (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B7] in ::--------
+
+----------[B7]-> [B6] out -------:
+(= tmp dest);
+ 
+--------[B8] in ::--------
+
+----------[B8]-> [B7] out -------:
+
+*******************process function::  strncat***************
+--------[B0] in ::--------
+(= _ret tmp);
+ {(= count 0)} || {(distinct count 0)};
+ {(= count 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {(= count 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(distinct count 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= count 0)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ {(= count 0)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B1] in ::--------
+{(= count 0)} || {(distinct count 0)};
+ {(= count 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {(= count 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(distinct count 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= count 0)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ {(= count 0)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B1]-> [B0] out -------:
+(= _ret tmp);
+ {(= count 0)} || {(distinct count 0)};
+ {(= count 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {(= count 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(distinct count 0)};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))};
+ {forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0)} || {(= (def_pointer (- src 1)) 0)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= count 0)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ {(= count 0)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B2] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ (not (= count 0));
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B2]-> [B5] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ (not (= count 0));
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B3] in ::--------
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ (= count 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B3]-> [B1] out -------:
+(distinct (def_pointer (- dest 1)) 0);
+ (= count 0);
+ (= (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B4] in ::--------
+(distinct count 0);
+ (= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B4]-> [B3] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ (= count 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B4]-> [B2] out -------:
+(= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ (not (= count 0));
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B5] in ::--------
+(distinct count 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {(= (def_pointer (- dest 1)) (def_pointer (- src 1)))} || {(= (def_pointer dest) 0)};
+ {(distinct (def_pointer (- dest 1)) 0)} || {(= (def_pointer dest) 0)};
+ {(distinct (def_pointer (- src 1)) 0)} || {(= (def_pointer dest) 0)};
+ {(not (= count 0))} || {(= (def_pointer dest) 0)};
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= (def_pointer dest) 0)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ {(= (def_pointer dest) 0)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B5]-> [B4] out -------:
+(distinct count 0);
+ (= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (distinct (def_pointer (- dest 1)) 0);
+ (distinct (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B5]-> [B1] out -------:
+(distinct count 0);
+ (= (def_pointer (- dest 1)) (def_pointer (- src 1)));
+ (= (def_pointer (- src 1)) 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ 
+--------[B6] in ::--------
+(distinct count 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+----------[B6]-> [B8] out -------:
+(distinct count 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B7] in ::--------
+(distinct count 0);
+ (distinct (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ forall _i0 in [dest@pre,1,(+ dest 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B7]-> [B6] out -------:
+(distinct count 0);
+ forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ 
+--------[B8] in ::--------
+(distinct count 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+----------[B8]-> [B7] out -------:
+(distinct count 0);
+ (distinct (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ forall _i0 in [dest@pre,1,(+ dest 1)),(distinct (def_pointer _i0) 0);
+ 
+----------[B8]-> [B5] out -------:
+(distinct count 0);
+ (= (def_pointer dest) 0);
+ forall _i0 in [dest@pre,1,dest),(distinct (def_pointer _i0) 0);
+ {forall _i0 in [dest@pre,1,(- dest 1)),(distinct (def_pointer _i0) 0)} || {(= tmp dest)};
+ {(= tmp dest)} || {forall _i0 in [dest,1,(- dest 1)),(distinct (def_pointer _i0) 0)};
+ 
+--------[B9] in ::--------
+
+----------[B9]-> [B8] out -------:
+(= tmp dest);
+ (distinct count 0);
+ 
+----------[B9]-> [B1] out -------:
+(= tmp dest);
+ (= count 0);
+ 
+--------[B10] in ::--------
+
+----------[B10]-> [B9] out -------:
+

@@ -717,7 +717,7 @@ private:
 			out->add(new Formula(z3coding.unprimedDecline(stmtP)));
 			out=powerClosure(z3coding.unprimedDecline(stmtP),out);
 		}
-		/*硬编码，用于做实验*/
+//		/*硬编码，用于做实验*/
 //		if(z3coding.toString(clangStmt)=="s = k"){
 //			out->add(new Formula(hard_coded()));
 //			out=powerClosure(z3coding.unprimedDecline(hard_coded()),out);

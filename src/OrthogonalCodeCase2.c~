@@ -1,8 +1,0 @@
-void arrayCopy(int A[],int B[],unsigned size){
-	int i=0;
-	while(i<size){
-		A[i]=B[i];
-		i++;
-	}
-	
-}

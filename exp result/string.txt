@@ -1,0 +1,47 @@
+*******************process function::  strncasecmp***************
+strncasecmp, 53.302095 s, 33, 0
+*******************process function::  strcasecmp***************
+*******************process function::  strcpy***************
+strcpy, 4.867324 s, 10, 0
+*******************process function::  strncpy***************
+*******************process function::  strscpy***************
+*******************process function::  strcat***************
+strcat, 4.726390 s, 10, 0
+*******************process function::  strncat***************
+strncat, 11.042485 s, 12, 0
+*******************process function::  strcmp***************
+strcmp, 75.019025 s, 78, 0
+*******************process function::  strncmp***************
+strncmp, 80.037437 s, 78, 0
+*******************process function::  strchr***************
+strchr, 3.536332 s, 17, 0
+*******************process function::  strchrnul***************
+strchrnul, 2.666411 s, 17, 0
+*******************process function::  strrchr***************
+strrchr, 2.432020 s, 7, 0
+*******************process function::  strnchr***************
+strnchr, 5.545731 s, 18, 0
+*******************process function::  strim***************
+strim, 4.441232 s, 8, 4
+*******************process function::  strlen***************
+strlen, 1.560302 s, 5, 0
+*******************process function::  strnlen***************
+strnlen, 3.725739 s, 6, 0
+*******************process function::  strspn***************
+strspn, 32.050005 s, 43, 0
+*******************process function::  strcspn***************
+strcspn, 37.381387 s, 57, 0
+*******************process function::  strpbrk***************
+strpbrk, 36.956014 s, 49, 0
+*******************process function::  sysfs_streq***************
+sysfs_streq, 11.082772 s, 29, 0
+*******************process function::  memset***************
+memset, 3.003582 s, 6, 0
+*******************process function::  memcpy***************
+*******************process function::  memmove***************
+*******************process function::  memscan***************
+memscan, 5.326866 s, 9, 0
+*******************process function::  memchr***************
+memchr, 3.896628 s, 6, 0
+*******************process function::  check_bytes8***************
+check_bytes8, 4.272740 s, 11, 0
