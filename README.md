@@ -1,6 +1,6 @@
 # QDInvSynthesis
 
-this is the tool for "Automatic Invariant Synthesis for Simple Loops Programs".
+this is the tool for "Automatic Invariant Synthesis for Induction Loop Programs".
 We offer a binares file, which can be executed in ubuntu 64bit(>= 14.04).
 
 ##Execute:
