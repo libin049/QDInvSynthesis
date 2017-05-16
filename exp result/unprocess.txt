@@ -1,8 +1,3 @@
-copyInitSum
-copyInitSum2
-copyInitSum3
-copyInitSum copyInitSum2 copyInitSum3 because of 因为全称量词实例化的功能做的不够好，所以导致不能证明
-
 partial_init  because of 用户提供的简单性质分析能力不够
 partition_init  because of 用户提供的简单性质分析能力不够
 running    不是全称量词，用户的分析能力不够
